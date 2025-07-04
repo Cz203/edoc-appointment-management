@@ -25,5 +25,5 @@
 
 | Bảng điều khiển Quản trị viên | Bảng điều khiển Bác sĩ   | Bảng điều khiển Bệnh nhân |
 | ----------------------------- | ------------------------ | ------------------------- |
-| Email: `admin@edoc.com`       | Email: `doctor@edoc.com` | Email: `patient@edoc.com` |
-| Mật khẩu: `123`               | Mật khẩu: `123`          | Mật khẩu: `123`           |
+| Email: `admin@gmail.com`      | Email: `bacsi@gmail.com` | Email: `viet@gmail.com`   |
+| Mật khẩu: `123`               | Mật khẩu: `1234`         | Mật khẩu: `123`           |

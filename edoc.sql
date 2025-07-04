@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1:3306
--- Generation Time: Jun 19, 2022 at 01:39 PM
--- Server version: 5.7.26
--- PHP Version: 7.3.5
+-- Máy chủ: 127.0.0.1
+-- Thời gian đã tạo: Th7 04, 2025 lúc 07:52 AM
+-- Phiên bản máy phục vụ: 10.4.32-MariaDB
+-- Phiên bản PHP: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -19,127 +18,114 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `edoc`
+-- Cơ sở dữ liệu: `edoc`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `admin`
+-- Cấu trúc bảng cho bảng `admin`
 --
 
-DROP TABLE IF EXISTS `admin`;
-CREATE TABLE IF NOT EXISTS `admin` (
+CREATE TABLE `admin` (
   `aemail` varchar(255) NOT NULL,
-  `apassword` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`aemail`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  `apassword` varchar(255) DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
--- Dumping data for table `admin`
+-- Đang đổ dữ liệu cho bảng `admin`
 --
 
 INSERT INTO `admin` (`aemail`, `apassword`) VALUES
-('admin@edoc.com', '123');
+('admin@gmail.com', '123');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `appointment`
+-- Cấu trúc bảng cho bảng `appointment`
 --
 
-DROP TABLE IF EXISTS `appointment`;
-CREATE TABLE IF NOT EXISTS `appointment` (
-  `appoid` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `appointment` (
+  `appoid` int(11) NOT NULL,
   `pid` int(10) DEFAULT NULL,
   `apponum` int(3) DEFAULT NULL,
   `scheduleid` int(10) DEFAULT NULL,
-  `appodate` date DEFAULT NULL,
-  PRIMARY KEY (`appoid`),
-  KEY `pid` (`pid`),
-  KEY `scheduleid` (`scheduleid`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+  `appodate` date DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
--- Dumping data for table `appointment`
+-- Đang đổ dữ liệu cho bảng `appointment`
 --
 
 INSERT INTO `appointment` (`appoid`, `pid`, `apponum`, `scheduleid`, `appodate`) VALUES
-(1, 1, 1, 1, '2022-06-03');
+(1, 1, 1, 1, '2022-06-03'),
+(2, 3, 2, 1, '2025-07-04'),
+(3, 3, 1, 9, '2025-07-04');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `doctor`
+-- Cấu trúc bảng cho bảng `doctor`
 --
 
-DROP TABLE IF EXISTS `doctor`;
-CREATE TABLE IF NOT EXISTS `doctor` (
-  `docid` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `doctor` (
+  `docid` int(11) NOT NULL,
   `docemail` varchar(255) DEFAULT NULL,
   `docname` varchar(255) DEFAULT NULL,
   `docpassword` varchar(255) DEFAULT NULL,
   `docnic` varchar(15) DEFAULT NULL,
   `doctel` varchar(15) DEFAULT NULL,
-  `specialties` int(2) DEFAULT NULL,
-  PRIMARY KEY (`docid`),
-  KEY `specialties` (`specialties`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+  `specialties` int(2) DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
--- Dumping data for table `doctor`
+-- Đang đổ dữ liệu cho bảng `doctor`
 --
 
 INSERT INTO `doctor` (`docid`, `docemail`, `docname`, `docpassword`, `docnic`, `doctel`, `specialties`) VALUES
-(1, 'doctor@edoc.com', 'Test Doctor', '123', '000000000', '0110000000', 1);
+(1, 'bacsi@gmail.com', 'Bac Si Viet', '1234', '000000000', '0110000000', 54);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `patient`
+-- Cấu trúc bảng cho bảng `patient`
 --
 
-DROP TABLE IF EXISTS `patient`;
-CREATE TABLE IF NOT EXISTS `patient` (
-  `pid` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `patient` (
+  `pid` int(11) NOT NULL,
   `pemail` varchar(255) DEFAULT NULL,
   `pname` varchar(255) DEFAULT NULL,
   `ppassword` varchar(255) DEFAULT NULL,
   `paddress` varchar(255) DEFAULT NULL,
   `pnic` varchar(15) DEFAULT NULL,
   `pdob` date DEFAULT NULL,
-  `ptel` varchar(15) DEFAULT NULL,
-  PRIMARY KEY (`pid`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+  `ptel` varchar(15) DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
--- Dumping data for table `patient`
+-- Đang đổ dữ liệu cho bảng `patient`
 --
 
 INSERT INTO `patient` (`pid`, `pemail`, `pname`, `ppassword`, `paddress`, `pnic`, `pdob`, `ptel`) VALUES
-(1, 'patient@edoc.com', 'Test Patient', '123', 'Sri Lanka', '0000000000', '2000-01-01', '0120000000'),
-(2, 'emhashenudara@gmail.com', 'Hashen Udara', '123', 'Sri Lanka', '0110000000', '2022-06-03', '0700000000');
+(3, 'viet@gmail.com', 'Cao Viet', '123', 'caoviet@gmail.com', '11111111', '2025-07-03', '0123456789');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `schedule`
+-- Cấu trúc bảng cho bảng `schedule`
 --
 
-DROP TABLE IF EXISTS `schedule`;
-CREATE TABLE IF NOT EXISTS `schedule` (
-  `scheduleid` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `schedule` (
+  `scheduleid` int(11) NOT NULL,
   `docid` varchar(255) DEFAULT NULL,
   `title` varchar(255) DEFAULT NULL,
   `scheduledate` date DEFAULT NULL,
   `scheduletime` time DEFAULT NULL,
-  `nop` int(4) DEFAULT NULL,
-  PRIMARY KEY (`scheduleid`),
-  KEY `docid` (`docid`)
-) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+  `nop` int(4) DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
--- Dumping data for table `schedule`
+-- Đang đổ dữ liệu cho bảng `schedule`
 --
 
 INSERT INTO `schedule` (`scheduleid`, `docid`, `title`, `scheduledate`, `scheduletime`, `nop`) VALUES
@@ -150,23 +136,22 @@ INSERT INTO `schedule` (`scheduleid`, `docid`, `title`, `scheduledate`, `schedul
 (5, '1', '1', '2022-06-10', '20:35:00', 1),
 (6, '1', '12', '2022-06-10', '20:35:00', 1),
 (7, '1', '1', '2022-06-24', '20:36:00', 1),
-(8, '1', '12', '2022-06-10', '13:33:00', 1);
+(8, '1', '12', '2022-06-10', '13:33:00', 1),
+(9, '1', 'S?t', '2025-07-04', '12:44:00', 4);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `specialties`
+-- Cấu trúc bảng cho bảng `specialties`
 --
 
-DROP TABLE IF EXISTS `specialties`;
-CREATE TABLE IF NOT EXISTS `specialties` (
+CREATE TABLE `specialties` (
   `id` int(2) NOT NULL,
-  `sname` varchar(50) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  `sname` varchar(50) DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
--- Dumping data for table `specialties`
+-- Đang đổ dữ liệu cho bảng `specialties`
 --
 
 INSERT INTO `specialties` (`id`, `sname`) VALUES
@@ -230,25 +215,101 @@ INSERT INTO `specialties` (`id`, `sname`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `webuser`
+-- Cấu trúc bảng cho bảng `webuser`
 --
 
-DROP TABLE IF EXISTS `webuser`;
-CREATE TABLE IF NOT EXISTS `webuser` (
+CREATE TABLE `webuser` (
   `email` varchar(255) NOT NULL,
-  `usertype` char(1) DEFAULT NULL,
-  PRIMARY KEY (`email`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  `usertype` char(1) DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
--- Dumping data for table `webuser`
+-- Đang đổ dữ liệu cho bảng `webuser`
 --
 
 INSERT INTO `webuser` (`email`, `usertype`) VALUES
-('admin@edoc.com', 'a'),
-('doctor@edoc.com', 'd'),
-('patient@edoc.com', 'p'),
-('emhashenudara@gmail.com', 'p');
+('admin@gmail.com', 'a'),
+('bacsi@gmail.com', 'd'),
+('emhashenudara@gmail.com', 'p'),
+('viet@gmail.com', 'p');
+
+--
+-- Chỉ mục cho các bảng đã đổ
+--
+
+--
+-- Chỉ mục cho bảng `admin`
+--
+ALTER TABLE `admin`
+  ADD PRIMARY KEY (`aemail`);
+
+--
+-- Chỉ mục cho bảng `appointment`
+--
+ALTER TABLE `appointment`
+  ADD PRIMARY KEY (`appoid`),
+  ADD KEY `pid` (`pid`),
+  ADD KEY `scheduleid` (`scheduleid`);
+
+--
+-- Chỉ mục cho bảng `doctor`
+--
+ALTER TABLE `doctor`
+  ADD PRIMARY KEY (`docid`),
+  ADD KEY `specialties` (`specialties`);
+
+--
+-- Chỉ mục cho bảng `patient`
+--
+ALTER TABLE `patient`
+  ADD PRIMARY KEY (`pid`);
+
+--
+-- Chỉ mục cho bảng `schedule`
+--
+ALTER TABLE `schedule`
+  ADD PRIMARY KEY (`scheduleid`),
+  ADD KEY `docid` (`docid`);
+
+--
+-- Chỉ mục cho bảng `specialties`
+--
+ALTER TABLE `specialties`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Chỉ mục cho bảng `webuser`
+--
+ALTER TABLE `webuser`
+  ADD PRIMARY KEY (`email`);
+
+--
+-- AUTO_INCREMENT cho các bảng đã đổ
+--
+
+--
+-- AUTO_INCREMENT cho bảng `appointment`
+--
+ALTER TABLE `appointment`
+  MODIFY `appoid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT cho bảng `doctor`
+--
+ALTER TABLE `doctor`
+  MODIFY `docid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT cho bảng `patient`
+--
+ALTER TABLE `patient`
+  MODIFY `pid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT cho bảng `schedule`
+--
+ALTER TABLE `schedule`
+  MODIFY `scheduleid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
