@@ -23,8 +23,7 @@
 - Xóa tài khoản
 - Chỉnh sửa cài đặt tài khoản
 
-| Bảng điều khiển Quản trị viên                                                                 | Bảng điều khiển Bác sĩ                                                                        | Bảng điều khiển Bệnh nhân                                                                     |
-| --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
-| Email: `admin@edoc.com`                                                                       | Email: `doctor@edoc.com`                                                                      | Email: `patient@edoc.com`                                                                     |
-| Mật khẩu: `123`                                                                               | Mật khẩu: `123`                                                                               | Mật khẩu: `123`                                                                               |
-| ![](<https://github.com/hshnudr/edoc-echanneling/blob/main/Screenshots/Screenshot%20(3).png>) | ![](<https://github.com/hshnudr/edoc-echanneling/blob/main/Screenshots/Screenshot%20(9).png>) | ![](<https://github.com/hshnudr/edoc-echanneling/blob/main/Screenshots/Screenshot%20(6).png>) |
+| Bảng điều khiển Quản trị viên | Bảng điều khiển Bác sĩ   | Bảng điều khiển Bệnh nhân |
+| ----------------------------- | ------------------------ | ------------------------- |
+| Email: `admin@edoc.com`       | Email: `doctor@edoc.com` | Email: `patient@edoc.com` |
+| Mật khẩu: `123`               | Mật khẩu: `123`          | Mật khẩu: `123`           |
